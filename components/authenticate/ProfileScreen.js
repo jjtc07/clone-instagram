@@ -1,16 +1,16 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import UnAuthenticate from './components/unauthenticate/Router';
-import RouterAuth from './components/authenticate/RouterAuth';
 
+class ProfileScreen extends React.Component {
 
-class App extends React.Component {
+  componentDidMount(){
+    console.log('componentDidMount ProfileScreen');
+  }
 
   render(){
     return (
       <View style={styles.container}>
-        {/* <UnAuthenticate /> */}
-        <RouterAuth />
+        <Text>Screen ProfileScreen</Text>
       </View>
     );
   }
@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
-
-export default App;
+export default ProfileScreen;
