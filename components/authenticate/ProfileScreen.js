@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
 class ProfileScreen extends React.Component {
 
@@ -8,9 +8,14 @@ class ProfileScreen extends React.Component {
   }
 
   render(){
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <Text>Screen ProfileScreen</Text>
+        <Button
+          title='Ir a Publicaciones'
+          onPress={ () => navigation.navigate('Publicacion') }
+        />
       </View>
     );
   }
