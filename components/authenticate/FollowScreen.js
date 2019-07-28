@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
 class FollowScreen extends React.Component {
 
@@ -8,9 +8,15 @@ class FollowScreen extends React.Component {
   }
 
   render(){
+    console.log('pruyeba');
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <Text>Screen FollowScreen</Text>
+        <Button
+          title='Ir a Autor'
+          onPress={ () => navigation.navigate('Autor') }
+        />
       </View>
     );
   }

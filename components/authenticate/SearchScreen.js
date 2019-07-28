@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Button } from 'react-native';
 
 class SearchScreen extends React.Component {
 
@@ -8,9 +8,14 @@ class SearchScreen extends React.Component {
   }
   
   render(){
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <Text>Screen SearchScreen</Text>
+        <Button
+          title='Ir a Autor'
+          onPress={ () => navigation.navigate('Autor') }
+        />
       </View>
     );
   }

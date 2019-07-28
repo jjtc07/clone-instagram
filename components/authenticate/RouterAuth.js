@@ -1,8 +1,8 @@
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import HomeStack from './HomeStack'
-import SearchScreen from './SearchScreen'
+import searchStack from "./searchStack";
+import FollowStack from "./FollowTab";
 import AddScreen from './AddScreen'
-import FollowScreen from './FollowScreen'
 import ProfileScreen from './ProfileScreen'
 
 // ocultando el tabBar para la vista de comentarios
@@ -17,19 +17,43 @@ HomeStack.navigationOptions = ({ navigation }) => {
   }
 }
 
+// ocultando el tabBar para la vista de comentarios
+searchStack.navigationOptions = ({ navigation }) => {
+  const { state: { routes, index } } = navigation;
+  let tabBarVisible = true;
+  if(routes[index].routeName === 'Comentarios'){
+    tabBarVisible = false;
+  }
+  return {
+    tabBarVisible
+  }
+}
+
+FollowStack.navigationOptions = ({ navigation }) => {
+  const { state: { routes, index } } = navigation;
+  let tabBarVisible = true;
+  if(routes[index].routeName === 'Comentarios'){
+    tabBarVisible = false;
+  }
+  return {
+    tabBarVisible,
+  }
+}
+
 const RouterAuth = createBottomTabNavigator(
   {
     Home: {
       screen: HomeStack,
     },
-    Search: SearchScreen,
+    Search: searchStack,
     Add: AddScreen,
-    Follow: FollowScreen,
+    Follow: FollowStack,
     Profile: {
       screen: ProfileScreen
     },
   },
   {
+    initialRouteName: 'Follow',
     tabBarPosition: 'bottom',
     tabBarOptions: {
       activeTintColor: 'tomato',

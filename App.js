@@ -3,7 +3,6 @@ import { StyleSheet, View, Text } from 'react-native';
 import UnAuthenticate from './components/unauthenticate/Router';
 import RouterAuth from './components/authenticate/RouterAuth';
 
-
 class App extends React.Component {
 
   render(){
