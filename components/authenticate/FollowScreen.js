@@ -8,7 +8,6 @@ class FollowScreen extends React.Component {
   }
 
   render(){
-    console.log('pruyeba');
     const { navigation } = this.props;
     return (
       <View style={styles.container}>

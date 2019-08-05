@@ -4,12 +4,13 @@ import UnAuthenticate from './components/unauthenticate/Router';
 import RouterAuth from './components/authenticate/RouterAuth';
 
 class App extends React.Component {
+  
 
   render(){
     return (
       <View style={styles.container}>
-        {/* <UnAuthenticate /> */}
-        <RouterAuth />
+        <UnAuthenticate />
+        {/* <RouterAuth /> */}
       </View>
     );
   }
