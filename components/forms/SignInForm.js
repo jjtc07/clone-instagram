@@ -45,12 +45,11 @@ const validate = (values) => {
 };
 
 const SignInForm = props => {
-  console.log('SignInForm props: ', props);
+  // console.log('SignInForm props: ', props);
 
   const _renderError = () => {
     const { hasError } = props
     if (hasError) {
-      
       return(
         <Text style={styles.red}>
           Datos Invalidos
@@ -58,7 +57,7 @@ const SignInForm = props => {
       )
     } 
 
-    return
+    return;
   }
 
   return(

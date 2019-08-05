@@ -1,10 +1,15 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
+// redux
+import { connect } from 'react-redux';
+//actions
+import { signOut } from '../../redux/actions/authActions'
 
 class ProfileScreen extends React.Component {
 
   componentDidMount(){
     console.log('componentDidMount ProfileScreen');
+    console.log('ProfileScreen props: ', this.props);
   }
 
   render(){
@@ -15,6 +20,11 @@ class ProfileScreen extends React.Component {
         <Button
           title='Ir a Publicaciones'
           onPress={ () => navigation.navigate('Publicacion') }
+        />
+
+        <Button
+          title='Salir'
+          onPress={ () => this.props.signOut() }
         />
       </View>
     );
@@ -30,4 +40,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen;
+const mapStateToProps = state => ({
+  ...state.authReducer
+})
+
+export default connect(mapStateToProps, { signOut } )(ProfileScreen);

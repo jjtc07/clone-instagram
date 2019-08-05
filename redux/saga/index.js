@@ -1,6 +1,7 @@
-import { takeEvery, call } from 'redux-saga/effects';
+import { takeEvery, call, put } from 'redux-saga/effects';
 import { LOGIN } from '../actions/types';
 import Axios from 'axios';
+import { setCurrentUser } from '../actions/authActions';
 
 const registroEnApi = ({email, password}) => 
     Axios.post('http://192.168.1.102:3000/auth/sign_in', {
@@ -38,8 +39,17 @@ const registroEnApi = ({email, password}) =>
 function* generadoraLogin(values){
   try {
     const login = yield call(registroEnApi, values.payload)
-    
-    console.log('generadoraLogin login: ', login)
+    // console.log('generadoraLogin login: ', login);
+    const user = {
+      ...login.data.data,
+      headers: {
+        "access-token": login.headers['access-token'],
+        client: login.headers.client,
+        uid: login.headers.uid,
+      }
+    }
+
+    yield put(setCurrentUser(user))
     // console.log('generadoraLogin values: ', values)
   } catch (error) {
     console.log('generadoraLogin error: ', error)

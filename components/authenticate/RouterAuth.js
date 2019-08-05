@@ -53,7 +53,7 @@ const RouterAuth = createBottomTabNavigator(
     },
   },
   {
-    initialRouteName: 'Follow',
+    initialRouteName: 'Home',
     tabBarPosition: 'bottom',
     tabBarOptions: {
       activeTintColor: 'tomato',
